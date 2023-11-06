@@ -40,15 +40,22 @@ INSTALLED_APPS = [
     'rest_framework',
     'backend',
     'rest_framework.authtoken',
+    'rest_auth',
+    'corsheaders',
+    
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'allauth.account.middleware.AccountMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -71,6 +78,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'blogs_api.wsgi.application'
+
+
+CORS_ALLOWED_ORIGINS = [
+    
+    "http://localhost:3000",
+    
+]
 
 
 # Database
